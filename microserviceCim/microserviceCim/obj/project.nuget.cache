@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Haynv7DbJ4B1Yu06N/biANlLu8g2lUCO29zAPUNdm7gGMkw+lf/nZJpisiI5nBHgySp7tBF1KpjgS8vdJNz54g==",
+  "success": true,
+  "projectFilePath": "D:\\Uoc\\TFM\\microservicioCim\\microserviceCim\\microserviceCim\\microserviceCim.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Raul\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.9\\microsoft.visualstudio.azure.containers.tools.targets.1.10.9.nupkg.sha512"
+  ],
+  "logs": []
+}
