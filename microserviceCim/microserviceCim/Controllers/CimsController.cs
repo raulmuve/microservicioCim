@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using microserviceCim.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace microserviceCim.Controllers
@@ -10,36 +11,57 @@ namespace microserviceCim.Controllers
 	[ApiController]
 	public class CimsController : ControllerBase
 	{
-		// GET: api/<CimsController>
+		private readonly IRepositoryCims _repositoryCims;
+
+		public CimsController(IRepositoryCims repositoryCims)
+		{
+			_repositoryCims = repositoryCims;
+		}
+
 		[HttpGet]
-		public IEnumerable<string> Get()
+		[ProducesResponseType(StatusCodes.Status404NotFound)]
+		[ProducesResponseType(StatusCodes.Status200OK)]
+		public async Task<ActionResult<IEnumerable<Cim>>> GetCims()
 		{
-			return new string[] { "value1", "value2" };
+			var lista = await _repositoryCims.GetCims();
+
+			if (lista == null)
+			{
+				return NotFound();
+			}
+			return Ok(lista);
 		}
 
-		// GET api/<CimsController>/5
 		[HttpGet("{id}")]
-		public string Get(int id)
+		[ProducesResponseType(StatusCodes.Status404NotFound)]
+		[ProducesResponseType(StatusCodes.Status200OK)]
+		public async Task<ActionResult<Cim>> GetCim(string id)
 		{
-			return "value";
+			var libro = await _repositoryCims.GetCim(id);
+
+			if (libro == null)
+			{
+				return NotFound();
+			}
+			return Ok(libro);
 		}
 
-		// POST api/<CimsController>
 		[HttpPost]
-		public void Post([FromBody] string value)
+		[ProducesResponseType(StatusCodes.Status400BadRequest)]
+		[ProducesResponseType(StatusCodes.Status201Created)]
+		public async Task<ActionResult> PostCim(Cim cim)
 		{
-		}
+			try
+			{
+				await _repositoryCims.Add(cim);
+			}
+			catch (Exception ex)
+			{
 
-		// PUT api/<CimsController>/5
-		[HttpPut("{id}")]
-		public void Put(int id, [FromBody] string value)
-		{
-		}
+				return BadRequest(ex.Message);
+			}
 
-		// DELETE api/<CimsController>/5
-		[HttpDelete("{id}")]
-		public void Delete(int id)
-		{
+			return CreatedAtAction("GetCim", new { id = cim.id }, cim);
 		}
 	}
 }

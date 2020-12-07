@@ -1,3 +1,4 @@
+using microserviceCim.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,6 +27,8 @@ namespace microserviceCim
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddControllers();
+			services.AddScoped<IRepositoryCims, RepositoryCims>();
+			services.AddSingleton<MongoDBContext>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

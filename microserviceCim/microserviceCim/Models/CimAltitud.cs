@@ -1,7 +1,7 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 using System;
 
-namespace microserviceCim.Entity
+namespace microserviceCim.Models
 {
 	public class CimAltitud
 	{

@@ -2,11 +2,12 @@
 using MongoDB.Bson.Serialization.Attributes;
 using System;
 
-namespace microserviceCim.Entity {
+namespace microserviceCim.Models{
 
 	public class Cim
 	{
 		[BsonId]
+		[BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
 		public ObjectId id { get; set; }
 
 		[BsonElement("Id_Cim")]
@@ -21,8 +22,8 @@ namespace microserviceCim.Entity {
 		[BsonElement("InformacioGeneral")]
 		public CimInformacioGeneral informacioGeneral { get; set; }
 
-		[BsonElement("CimAltigud")]
-		public CimAltitud cimAltitud { get; set; }
+		[BsonElement("Altitud")]
+		public CimAltitud altitud { get; set; }
 
 		[BsonElement("Actiu")]
 		public bool actiu { get; set; }

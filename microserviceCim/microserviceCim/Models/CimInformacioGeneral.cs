@@ -1,6 +1,6 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 
-namespace microserviceCim.Entity
+namespace microserviceCim.Models
 {
 	public class CimInformacioGeneral
 	{
