@@ -1,16 +1,12 @@
+using microserviceCim.Entity;
 using microserviceCim.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Threading;
+using microserviceCim.Rabbit;
 
 namespace microserviceCim
 {
@@ -29,6 +25,20 @@ namespace microserviceCim
 			services.AddControllers();
 			services.AddScoped<IRepositoryCims, RepositoryCims>();
 			services.AddSingleton<MongoDBContext>();
+
+			Consumer rabbit = new Consumer();
+
+			Thread rabbitStart = new Thread(rabbit.ConsumerStart);
+			rabbitStart.Start();
+
+			services.AddSwaggerGen(c =>
+			{
+				c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+				{
+					Title = "TFM 2020 - Microservei Cims",
+					Version = "v1"
+				});
+			});
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,6 +50,14 @@ namespace microserviceCim
 			}
 
 			app.UseHttpsRedirection();
+
+			app.UseSwagger();
+
+			app.UseSwaggerUI(c =>
+			{
+				c.SwaggerEndpoint("/swagger/v1/swagger.json", "Values API V1");
+			});
+
 
 			app.UseRouting();
 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Uoc\\TFM\\microservicioCim\\microserviceCim\\microserviceCim\\microserviceCim.csproj": {}
+    "C:\\Users\\Raul\\Desktop\\TFM\\implementacion\\microservicioCim\\microserviceCim\\microserviceCim\\microserviceCim.csproj": {}
   },
   "projects": {
-    "D:\\Uoc\\TFM\\microservicioCim\\microserviceCim\\microserviceCim\\microserviceCim.csproj": {
+    "C:\\Users\\Raul\\Desktop\\TFM\\implementacion\\microservicioCim\\microserviceCim\\microserviceCim\\microserviceCim.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Uoc\\TFM\\microservicioCim\\microserviceCim\\microserviceCim\\microserviceCim.csproj",
+        "projectUniqueName": "C:\\Users\\Raul\\Desktop\\TFM\\implementacion\\microservicioCim\\microserviceCim\\microserviceCim\\microserviceCim.csproj",
         "projectName": "microserviceCim",
-        "projectPath": "D:\\Uoc\\TFM\\microservicioCim\\microserviceCim\\microserviceCim\\microserviceCim.csproj",
+        "projectPath": "C:\\Users\\Raul\\Desktop\\TFM\\implementacion\\microservicioCim\\microserviceCim\\microserviceCim\\microserviceCim.csproj",
         "packagesPath": "C:\\Users\\Raul\\.nuget\\packages\\",
-        "outputPath": "D:\\Uoc\\TFM\\microservicioCim\\microserviceCim\\microserviceCim\\obj\\",
+        "outputPath": "C:\\Users\\Raul\\Desktop\\TFM\\implementacion\\microservicioCim\\microserviceCim\\microserviceCim\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Raul\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -55,6 +55,14 @@
             "MongoDB.Driver.Core": {
               "target": "Package",
               "version": "[2.11.5, )"
+            },
+            "RabbitMQ.Client": {
+              "target": "Package",
+              "version": "[6.2.1, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.6.3, )"
             }
           },
           "imports": [

@@ -1,12 +1,12 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 using System;
 
-namespace microserviceCim.Models
+namespace microserviceCim.Entity
 {
 	public class CimAltitud
 	{
 		[BsonElement("Cota")]
-		public int cota { get; set; }
+		public string cota { get; set; }
 
 		[BsonElement("X")]
 		public string x { get; set; }

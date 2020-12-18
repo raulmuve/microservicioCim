@@ -1,14 +1,14 @@
 ﻿
 using MongoDB.Driver;
 
-namespace microserviceCim.Models
+namespace microserviceCim.Entity
 {
 	public class MongoDBContext
 	{
 		//Definicio constants
 		private const string ConnectionString = "mongodb://localhost:27017/";
 		private const string Database = "serveiCims";
-		private const string ColeccioCims = "Cims";
+		private const string ColeccioCims = "cims";
 		
 		private readonly IMongoDatabase _mongoDB;
 
