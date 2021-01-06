@@ -14,8 +14,6 @@ namespace microserviceCim.Entity
 		[BsonElement("Y")]
 		public string y { get; set; }
 
-		[BsonElement("Data")]
-		public DateTime data { get; set; }
 	}
 	
 }

@@ -14,7 +14,7 @@ namespace microserviceCim.Rabbit
 		{
 			Boolean connected = false;
 			String cola = "MicroserveiCims";
-			var factory = new ConnectionFactory() { HostName = "localhost" };
+			var factory = new ConnectionFactory() { HostName = "rabbitmq" , UserName = "rabbitmq", Password  = "rabbitmq" };
 
 			RepositoryCims repo = new RepositoryCims();
 			while (!connected)
